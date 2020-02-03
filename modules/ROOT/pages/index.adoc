@@ -1,10 +1,9 @@
 [id="openshift-pipelines_{context}"]
 = OpenShift Pipelines
 
-Hello World! Hello world no2!
 [IMPORTANT]
 ====
-OpenShift Pipelines project is based on the upstream project link:https://github.com/tektoncd[Tekton] and is available as a Developer Preview release. Developer Preview releases have features and functionality that might not be fully tested. Customers are encouraged to use and provide feedback on Developer Preview releases. Red Hat does not commit to fixing any reported issues and the provided features may not be available in future releases. 
+OpenShift Pipelines project is based on the upstream project link:https://github.com/tektoncd[Tekton] and is available as a Developer Preview release. Developer Preview releases have features and functionality that might not be fully tested. Customers are encouraged to use and provide feedback on Developer Preview releases. Red Hat does not commit to fixing any reported issues and the provided features may not be available in future releases.
 
 Developer Preview releases are not production ready and customers are advised to avoid running the software for production or business-critical workloads. Limited documentation is available for Developer Preview releases. Customers are NOT able to open support cases against the Developer Preview releases.
 
@@ -21,7 +20,6 @@ OpenShift Pipelines are cloud-native, continuous integration and delivery soluti
 
 == Additional resources
 
-* For more details on defining pipelines, see the link:https://openshift.github.io/pipelines-docs/docs/docs/0.7/assembly_using-pipelines.html[Using Pipelines documentation].
+* For more details on defining pipelines, see the link:https://openshift.github.io/pipelines-docs/docs/0.8/assembly_using-pipelines.html[Using Pipelines documentation].
 * For more information on Tekton see the link:https://github.com/tektoncd[Tekton Pipelines documentation].
 * Visit our link:https://github.com/openshift/pipelines-docs[GitHub] repository for more information or to contribute.
-
