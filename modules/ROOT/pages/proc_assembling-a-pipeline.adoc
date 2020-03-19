@@ -1,11 +1,11 @@
 // Ths module is included in the following assembly:
 //
-// assembly_using-openshift-pipelines.adoc
+//  assembly_creating-applications-with-cicd-pipelines.adoc
 
 [id="assembling-a-pipeline_{context}"]
-= Assembling a pipeline
+= Assembling a Pipeline
 
-A `Pipeline` represents a CI/CD flow and is defined by the `Tasks` to be executed.  It specifies how the `Tasks` interact with each other and their order of execution using the `inputs` , `outputs`, and the `run-After` parameters. It is designed to be generic and reusable in multiple applications and environments.
+A _Pipeline_ represents a CI/CD flow and is defined by the Tasks to be executed.  It specifies how the Tasks interact with each other and their order of execution using the `inputs` , `outputs`, and the `run-After` parameters. It is designed to be generic and reusable in multiple applications and environments.
 
 In this section you will create a Pipeline that takes the source code of the application from GitHub and then builds and deploys it on OpenShift:
 
@@ -15,7 +15,7 @@ image::pipeline.png[Pipeline]
 [discrete]
 === Procedure
 
-. Copy the contents of the following sample `Pipeline` YAML file and save it:
+. Copy the contents of the following sample Pipeline YAML file and save it:
 +
 ----
 apiVersion: tekton.dev/v1alpha1
@@ -120,9 +120,9 @@ This `Pipeline` performs the following tasks:
 * The application image is pushed to an image registry.
 * The new application image is deployed on OpenShift using the `apply-manifests` and `update-deployment` tasks.
 +
-`Pipelines` in Tekton are designed to be generic and re-usable across environments and stages through the applications lifecycle. They abstract away the specifics of the Git source repository and image registries to be used during `Pipeline` execution.
+Pipelines in Tekton are designed to be generic and re-usable across environments and stages through the applications lifecycle. They abstract away the specifics of the Git source repository and image registries to be used during Pipeline execution.
 +
-The execution order of the tasks is determined by the dependencies defined between the tasks using the  `inputs` and `outputs` parameters, and the explicit orders that are defined using `runAfter`.
+The execution order of the tasks is determined by the dependencies defined between the tasks using the `inputs` and `outputs` parameters, and the explicit orders that are defined using `runAfter`.
 
 . Create the `Pipeline`:
 +

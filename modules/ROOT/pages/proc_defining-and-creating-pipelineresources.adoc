@@ -1,16 +1,16 @@
 // Ths module is included in the following assembly:
 //
-// assembly_using-openshift-pipelines.adoc
+//  assembly_creating-applications-with-cicd-pipelines.adoc
 
 [id="defining-and-creating-pipelineresources_{context}"]
-= Defining and creating pipeline resources
+= Defining and creating Pipeline Resources
 
-Pipeline resources are artifacts that are used as inputs to a task and can be output by a task.
+_Pipeline Resources_ are artifacts that are used as inputs to a Task and can be an output of a Task.
 
 [discrete]
 === Procedure
 
-After you create tasks, create pipeline resources that contain the specifics of the Git repository and the image registry to be used in the pipeline during execution as follows:
+After you create Tasks, create Pipeline Resources that contain the specifics of the Git repository and the image registry to be used in the Pipeline during execution as follows:
 
 . Create a `PipelineResource` that defines the Git repository for the front-end application:
 +
@@ -69,12 +69,3 @@ ui-repo     git     url: http://github.com/openshift-pipelines/vote-ui.git
 api-image   image   url: image-registry.openshift-image-registry.svc:5000/pipelines-tutorial/api:latest
 ui-image    image   url: image-registry.openshift-image-registry.svc:5000/pipelines-tutorial/ui:latest
 ----
-
-////
-[discrete]
-== Additional resources
-
-* A bulleted list of links to other material closely related to the contents of the procedure module.
-* For more details on writing procedure modules, see the link:https://github.com/redhat-documentation/modular-docs#modular-documentation-reference-guide[Modular Documentation Reference Guide].
-* Use a consistent system for file names, IDs, and titles. For tips, see _Anchor Names and File Names_ in link:https://github.com/redhat-documentation/modular-docs#modular-documentation-reference-guide[Modular Documentation Reference Guide].
-////

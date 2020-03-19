@@ -1,0 +1,54 @@
+// This module is included in the following assembly:
+//
+// assembly_creating-applications-with-cicd-pipelines.adoc
+
+[id="creating-webhooks_{context}"]
+= Creating Webhooks
+
+Webhooks are HTTP POST messages that are received by the EventListeners whenever a configured event occurs in your repository. The event payload is then mapped to TriggerBindings, and processed by TriggerTemplates which eventually starts a PipelineRun(s) leading to the creation and deployment of Kubernetes resources.
+
+In this section you will configure Webhook URL on your Git repositories. This URL points to the EventListener service route which you made publicly accessible in the previous step.
+
+[NOTE]
+====
+Adding Webhooks requires administrative privileges to the repository. If you do not have administrative access to your repository, contact your System Administrator for adding Webhooks.
+====
+
+
+== Prerequisites
+
+* You have forked the front-end and back-end repositories that you have defined when creating resources.
+
+* You have Administrator access to your repositories.
+
+== Procedure
+
+
+. Get the Webhook URL
++
+----
+$ echo "URL: $(oc  get route el-voteapp-listener --template='http://{{.spec.host}}')".
+----
++
+Note the URL obtained in the output.
+
+. Configure Webhooks manually on front-end repository
++
+.. Open the front-end Git repository in your browser.
+.. Click *Settings* and then *Webhooks*.
+.. Click *Add Webhook*
+.. On the *Webhooks/Add Webhook* page:
++
+... Enter the Webhook URL from step 1 in *Payload URL*
+... Select *application/json* for *Content type*
+... Specify *Secret*
+... Ensure *Just the push event* selected
+... Select *Active*
+... Click *Add Webhook*
+
+. Repeat step 2 for the back-end repository
+
+[discrete]
+== Additional resources
+
+*

@@ -1,17 +1,17 @@
 // Ths module is included in the following assembly:
 //
-// assembly_creating-openshift-pipelines.adoc
+//  assembly_creating-applications-with-cicd-pipelines.adoc
 
 [id="defining-and-creating-pipeline-tasks_{context}"]
-= Defining and creating pipeline tasks
+= Defining and creating Pipeline Tasks
 
-`Tasks` are the building blocks of a `Pipeline` and consist of sequentially executed steps. `steps` are a series of commands that achieve a specific goal, for example, build an image.
+_Tasks_ are the building blocks of a Pipeline and consist of sequentially executed Steps. Steps are a series of commands that achieve a specific goal, for example, build an image.
 
-Every `Task` runs as a pod and each `step` runs in its own container within the same pod. Since they run within the same pod they have access to the same volumes to cache files, configmaps, and secrets. They use `inputs` parameters, for example, a git , and `outputs` parameters, for example, an image in a registry, to interact with other tasks.
+Every Task runs as a pod and each Step runs in its own container within the same pod. Since they run within the same pod they have access to the same volumes to cache files, configmaps, and secrets. They use `inputs` parameters, for example, a git resource, and `outputs` parameters, for example, an image in a registry, to interact with other Tasks.
 
-`Tasks` are reusable and can be used in multiple `Pipelines`.
+Tasks are reusable and can be used in multiple Pipelines.
 
-Here is an example of a Maven `Task` with a single step to build a Maven-based Java application.
+Here is an example of a Maven Task with a single Step to build a Maven-based Java application.
 
 ----
 apiVersion: tekton.dev/v1alpha1
@@ -33,21 +33,21 @@ spec:
     - install
 
 ----
-This `Task` starts a pod and runs a container inside that pod using the `maven:3.6.0-jdk-8-slim` image to run the specified commands. It receives an input directory called `workspace-git` which contains the source code of the application.
+This Task starts a pod and runs a container inside that pod using the `maven:3.6.0-jdk-8-slim` image to run the specified commands. It receives an input directory called `workspace-git` which contains the source code of the application.
 
-Only the requirement for a git repository is declared on the `Task` and not a specific git repository to be used. This allows `Tasks` to be reusable for multiple `Pipelines` and purposes.
+Only the requirement for a git repository is declared in the Task and not a specific git repository to be used. This allows Tasks to be reusable for multiple Pipelines and purposes.
 
 [discrete]
 == Procedure
 
-. Install the `apply-manifests` and `update-deployment` tasks from the repositories, which contain a list of reusable `Tasks` for `Pipelines`:
+. Install the `apply-manifests` and `update-deployment` Tasks from the pipeline-tutorial repositories, which contain a list of reusable Tasks for Pipelines:
 +
 ----
 $ oc create -f https://raw.githubusercontent.com/openshift/pipelines-tutorial/master/pipeline/update_deployment_task.yaml
 $ oc create -f https://raw.githubusercontent.com/openshift/pipelines-tutorial/master/pipeline/apply_manifest_task.yaml
 ----
 
-. Verify the `Tasks` added to the `Pipeline` as follows:
+. Verify the Tasks added to the Pipeline:
 +
 ----
 $ tkn task ls
@@ -57,7 +57,7 @@ apply-manifests     10 seconds ago
 update-deployment   4 seconds ago
 ----
 
-. Verify Operator installed additional tasks -`buildah` and `s2i-python-3`:
+. Verify the Operator installed additional Tasks -`buildah` and `s2i-python-3`:
 +
 ----
 $ tkn clustertask ls
@@ -90,4 +90,4 @@ s2i-v0-10-0                4 minutes ago
 [discrete]
 == Additional resources
 
-* For more examples of reusable `Tasks` see the link:https://github.com/tektoncd/catalog[Tekton Catalog] and link:https://github.com/openshift/pipelines-catalog[OpenShift Catalog] repositories.
+* For more examples of reusable Tasks see the link:https://github.com/tektoncd/catalog[Tekton Catalog] and link:https://github.com/openshift/pipelines-catalog[OpenShift Catalog] repositories.

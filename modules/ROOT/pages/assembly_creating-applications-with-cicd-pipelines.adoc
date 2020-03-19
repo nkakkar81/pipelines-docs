@@ -5,7 +5,7 @@
 
 :context: creating-applications-with-cicd-pipelines
 
-The following section demonstrates how to create pipelines, trigger and run them, and check on the application status using the pipeline-tutorial example.
+The following section demonstrates how to create pipelines, add triggers and run them, and check on the application status using the pipeline-tutorial example.
 
 [discrete]
 === Prerequisites
@@ -21,6 +21,10 @@ include::proc_defining-and-creating-pipeline-tasks.adoc[leveloffset=+1]
 include::proc_defining-and-creating-pipelineresources.adoc[leveloffset=+1]
 
 include::proc_assembling-a-pipeline.adoc[leveloffset=+1]
+
+include::proc_defining_and_adding_triggers.adoc[leveloffset=+1]
+
+include::proc_create_webhooks.adoc[leveloffset=+1]
 
 include::proc_triggering-and-running-a-pipeline.adoc[leveloffset=+1]
 
